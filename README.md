@@ -39,7 +39,7 @@ The following **optional** features are implemented:
 
 ## Picture Walkthrough
 
-![image]([[https://github.com/user-attachments/assets/37c96f2e-252e-4fc3-97d7-456e59fe11ec](https://i.imgur.com/6MCG7AA.png)])
+https://i.imgur.com/6MCG7AA.png
 
 ## Notes
 
