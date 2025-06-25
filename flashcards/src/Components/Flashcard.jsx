@@ -25,22 +25,50 @@ const Flashcard = () => {
         { question: "What is the 'this' keyword in OOP?", answer: "`this` refers to the current instance of the class." }
     ];
 
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [userInput, setUserInput] = useState('');
+    const [feedback, setFeedback] = useState('');
+    const [currentStreak, setCurrentStreak] = useState(0);
+    const [longestStreak, setLongestStreak] = useState(0);
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
     };
 
     const nextCard = () => {
-        const randomIndex = Math.floor(Math.random() * oopFlashcards.length);
-        setCurrentIndex(randomIndex);
-        setIsFlipped(false);
+        if (currentIndex < oopFlashcards.length - 1) {
+            setCurrentIndex(currentIndex + 1);
+            setIsFlipped(false);
+            setFeedback('');
+            setUserInput('');
+        }
     };
 
     const prevCard = () => {
-        setCurrentIndex((currentIndex - 1 + oopFlashcards.length) % oopFlashcards.length);
-        setIsFlipped(false);
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+            setIsFlipped(false);
+            setFeedback('');
+            setUserInput('');
+        }
+    };
+
+    const handleSubmit = () => {
+        const trimmedInput = userInput.trim().toLowerCase();
+        const correctAnswer = oopFlashcards[currentIndex].answer.toLowerCase();
+
+        if (trimmedInput === correctAnswer) {
+            setFeedback('Correct!');
+            setCurrentStreak(currentStreak + 1);
+            if (currentStreak + 1 > longestStreak) {
+                setLongestStreak(currentStreak + 1);
+            }
+        } else {
+            setFeedback('Incorrect, try again.');
+            setCurrentStreak(0);
+        }
     };
 
     return (
@@ -53,9 +81,22 @@ const Flashcard = () => {
                     {oopFlashcards[currentIndex].answer}
                 </div>
             </div>
+            <br></br><br></br>
+            <input
+                type="text"
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                placeholder="Type your answer here"
+            />
+            <button onClick={handleSubmit}>Submit</button>
+            <p className="feedback">{feedback}</p>
             <div className="controls">
-                <button onClick={prevCard}>Back</button>
-                <button onClick={nextCard}>Next</button>
+                <button onClick={prevCard} disabled={currentIndex === 0}>Back</button>
+                <button onClick={nextCard} disabled={currentIndex === oopFlashcards.length - 1}>Next</button>
+            </div>
+            <div className="streak-info">
+                <p>Current Streak: {currentStreak}</p>
+                <p>Longest Streak: {longestStreak}</p>
             </div>
         </div>
     );
