@@ -37,18 +37,9 @@ The following **optional** features are implemented:
   - Mastered cards are removed from the pool of displayed cards and added to a list of mastered cards
 
 
-## Video Walkthrough
+## Picture Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+![image]([https://github.com/user-attachments/assets/37c96f2e-252e-4fc3-97d7-456e59fe11ec])
 
 ## Notes
 
@@ -70,9 +61,6 @@ Describe any challenges encountered while building the app.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-## Picture Walkthrough
-
-![image](https://github.com/user-attachments/assets/37c96f2e-252e-4fc3-97d7-456e59fe11ec)
 
 
 
